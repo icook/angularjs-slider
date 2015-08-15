@@ -291,7 +291,7 @@ function throttle(func, wait, options) {
 
       // Watch for changes to the model
 
-      thrLow = throttle(function()
+      thrLow = function()
       {
         self.setMinAndMax();
         self.updateLowHandle(self.valueToOffset(self.scope.rzSliderModel));
@@ -302,15 +302,15 @@ function throttle(func, wait, options) {
           self.updateCmbLabel();
         }
 
-      }, 350, { leading: false });
+      };
 
-      thrHigh = throttle(function()
+      thrHigh = function()
       {
         self.setMinAndMax();
         self.updateHighHandle(self.valueToOffset(self.scope.rzSliderHigh));
         self.updateSelectionBar();
         self.updateCmbLabel();
-      }, 350, { leading: false });
+      };
 
       this.scope.$on('rzSliderForceRender', function()
       {
